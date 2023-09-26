@@ -23,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.android_native_tipcalculator.ui.theme.AndroidNativetipCalculatorTheme
@@ -58,7 +59,7 @@ fun TipCounter() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = "Calculator Tip"
+            text = stringResource(R.string.calculator_tip)
         )
         TextField(
             value = tipAmount,
@@ -66,12 +67,12 @@ fun TipCounter() {
                 tipAmount = it
                 result = tipCounter(it.toInt())
             },
-            label = { Text(text = "Bill Amount") },
+            label = { Text(text = stringResource(R.string.bill_amount)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             singleLine = true,
         )
         Text(
-            text = "Tip Amount :$ $result"
+            text = stringResource(R.string.tip_amount, result)
         )
     }
 }
